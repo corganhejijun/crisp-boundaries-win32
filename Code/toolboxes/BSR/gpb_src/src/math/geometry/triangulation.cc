@@ -192,7 +192,6 @@ auto_ptr<triangulation> triangulation::delaunay(
    /* sort vertices in lexicographic order */
    class vrtx_compare : public comparable_functor<vrtx> {
    public:
-       vrtx_compare(){} // EDIT: Jordi Pont-Tuset <jordi.pont@upc.edu> to compile on OSX Mavericks
       int operator()(const vrtx& v0, const vrtx& v1) const {
          return v0.p.compare_to(v1.p);
       }

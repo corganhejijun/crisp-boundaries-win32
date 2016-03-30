@@ -189,33 +189,33 @@ public:
    auto_ptr< iterator<T> > iter_reverse_create() const;
 
    /************************************************************************
-    * Map data structures.
-    ************************************************************************/
+   * Map data structures.
+   ************************************************************************/
 
    /*
-    * Image of an element under a map.
-    */
+   * Image of an element under a map.
+   */
    class map_image {
    public:
-      /*
+       /*
        * Constructor.
        */
-      explicit map_image(U& item) : u(item) { }
+       explicit map_image(U& item) : u(item) { }
 
-      /*
+       /*
        * Copy constructor.
        */
-      map_image(const map_image& m) : u(m.u) { }
+       map_image(const map_image& m) : u(m.u) { }
 
-      /*
+       /*
        * Destructor.
        */
-      ~map_image() { /* do nothing */ }
-     
-      /*
+       ~map_image() { /* do nothing */ }
+
+       /*
        * Data.
        */
-      U& u;
+       U& u;
    };
    
    /*

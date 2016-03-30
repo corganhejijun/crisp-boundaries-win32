@@ -960,7 +960,7 @@ auto_ptr< array<T,Syn> > array<T,Syn>::deserialize(
 template <typename T, typename Syn>
 inline T& array<T,Syn>::operator[](unsigned long n) {
    auto_read_lock<const Syn> rlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS == 1
       /* perform bounds check */
       if (n >= _size)
          throw ex_index_out_of_bounds(
@@ -988,7 +988,7 @@ inline T& array<T,Syn>::operator()(unsigned long n) {
 template <typename T, typename Syn>
 inline const T& array<T,Syn>::operator[](unsigned long n) const {
    auto_read_lock<const Syn> rlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS
       /* perform bounds check */
       if (n >= _size)
          throw ex_index_out_of_bounds(
@@ -1030,7 +1030,7 @@ array<T,Syn> array<T,Syn>::subarray(
    unsigned long end) const
 {
    auto_read_lock<const Syn> rlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(
@@ -1073,7 +1073,7 @@ array<T,Syn> array<T,Syn>::subarray(
    for (unsigned long n = 0; n < n_indices; n++) {
       /* get index */
       unsigned long index = indices[n];
-      #ifdef LANG__ARRAY__CHECK_BOUNDS
+      #if LANG__ARRAY__CHECK_BOUNDS
          /* check index bounds */
          if (index >= _size)
             throw ex_index_out_of_bounds(
@@ -1418,7 +1418,7 @@ array<unsigned long> array<T,Syn>::randperm_subarray(
    rand_gen<>& r)
 {
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(
@@ -1494,7 +1494,7 @@ void array<T,Syn>::sort_subarray(
    const comparable_functor<T>& f)
 {
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(
@@ -1524,7 +1524,7 @@ array<unsigned long> array<T,Syn>::sort_subarray_idx(
    const comparable_functor<T>& f) 
 {
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef LANG__ARRAY__CHECK_BOUNDS
+   #if LANG__ARRAY__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(

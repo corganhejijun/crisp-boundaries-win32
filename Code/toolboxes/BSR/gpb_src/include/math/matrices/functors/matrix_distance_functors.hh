@@ -63,14 +63,14 @@ public:
     * Specify the value of n.
     */
    explicit matrix_Ln_distance(const T& n)
-    : _NN(n)
+    : _N(n)
    { }
 
    /*
     * Copy constructor.
     */
    explicit matrix_Ln_distance(const matrix_Ln_distance<T>& f)
-    : _NN(f._NN)
+    : _N(f._N)
    { }
    
    /*
@@ -80,12 +80,12 @@ public:
       matrix<T>::assert_dims_equal(m0._dims, m1._dims);
       T dist = T();
       for (unsigned long n = 0; n < m0._size; n++)
-         dist += pow(m1._data[n] - m0._data[n], _NN);
-      return pow(dist, T(1)/_NN);
+         dist += pow(m1._data[n] - m0._data[n], _N);
+      return pow(dist, T(1)/_N);
    }
    
 protected:
-   T _NN;
+   T _N;
 };
 
 /*

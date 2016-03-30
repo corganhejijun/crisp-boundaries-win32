@@ -229,23 +229,7 @@ public:
     * Declare vertex, edge, and triangle types.
     */
    class vrtx;
-   class edge;
    class tri;
-    
-   /*
-    * Vertex.
-    */
-   class vrtx {
-   public:
-      /* constructor */
-      explicit vrtx(unsigned long /* id */, point_2D& /* point */);
-
-      /* data */
-      unsigned long        id;   /* vertex id */
-      point_2D&            p;    /* point at vertex */
-      sym_edge<vrtx,edge>* e;    /* edge out of vertex (if it exists) */
-   };
-
    /*
     * Edge data.
     */
@@ -272,6 +256,20 @@ public:
       /* data */
       unsigned long id;          /* triangle id */
       sym_edge<vrtx,edge>* e;    /* edge which triangle is left of */
+   };
+    
+   /*
+    * Vertex.
+    */
+   class vrtx {
+   public:
+      /* constructor */
+      explicit vrtx(unsigned long /* id */, point_2D& /* point */);
+
+      /* data */
+      unsigned long        id;   /* vertex id */
+      point_2D&            p;    /* point at vertex */
+      sym_edge<vrtx,edge>* e;    /* edge out of vertex (if it exists) */
    };
 protected:
    /************************************************************************

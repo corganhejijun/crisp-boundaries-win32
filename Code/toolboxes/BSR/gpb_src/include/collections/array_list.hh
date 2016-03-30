@@ -180,7 +180,7 @@ public:
     * Return a reference to the array list.
     */
    array_list<T,Syn>& add(T&);
-   array_list<T,Syn>& add(const collection<T>&);
+   array_list<T, Syn>& add(const collection<T>&);
     
    /*
     * Addition of element(s) to head of array list.
@@ -754,7 +754,7 @@ auto_collection< T, array_list<T,Syn> > array_list<T,Syn>::deserialize(
 template <typename T, typename Syn>
 T& array_list<T,Syn>::operator[](unsigned long n) const {
    auto_read_lock<const Syn> rlock(*this);
-   #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+   #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
       /* perform bounds check */
       if (n >= _size)
          throw ex_index_out_of_bounds(
@@ -774,7 +774,7 @@ T& array_list<T,Syn>::operator[](unsigned long n) const {
 template <typename T, typename Syn>
 T& array_list<T,Syn>::replace(unsigned long n, T& t) {
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+   #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
       /* perform bounds check */
       if (n >= _size)
          throw ex_index_out_of_bounds(
@@ -814,7 +814,7 @@ void array_list<T,Syn>::subarray(
    {
       /* lock array list and obtain elements in range */
       auto_read_lock<const Syn> rlock(*this);
-      #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+      #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
          /* check array bounds */
          if (start >= _size)
             throw ex_index_out_of_bounds(
@@ -856,7 +856,7 @@ void array_list<T,Syn>::subarray(
       for (unsigned long n = 0; n < n_indices; n++) {
          /* get index */
          unsigned long index = index_arr[n];
-         #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+         #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
             /* check index bounds */
             if (index >= _size)
                throw ex_index_out_of_bounds(
@@ -955,7 +955,7 @@ array_list<T,Syn>& array_list<T,Syn>::add(T& t) {
  * Return a reference to the array list.
  */
 template <typename T, typename Syn>
-array_list<T,Syn>& array_list<T,Syn>::add(const collection<T>& c) {
+array_list<T, Syn>& array_list<T, Syn>::add(const collection<T>& c) {
    return this->append(c);
 }
 
@@ -1213,7 +1213,7 @@ lang::array<unsigned long> array_list<T,Syn>::randperm_subarray(
    rand_gen<>& r)
 {
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+   #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(
@@ -1287,7 +1287,7 @@ void array_list<T,Syn>::sort_subarray(
 {
    const ptr_node_compare_functor f_compare(f);
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+   #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(
@@ -1321,7 +1321,7 @@ lang::array<unsigned long> array_list<T,Syn>::sort_subarray_idx(
 {
    const ptr_node_compare_functor f_compare(f);
    auto_write_lock<const Syn> wlock(*this);
-   #ifdef COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
+   #if COLLECTIONS__ARRAY_LIST__CHECK_BOUNDS
       /* check array bounds */
       if (start >= _size)
          throw ex_index_out_of_bounds(

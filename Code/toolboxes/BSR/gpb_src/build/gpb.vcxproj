@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D2D8C5D1-0D53-43CF-A021-5566EA19893C}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>gpb</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)..\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)..\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <OpenMPSupport>true</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>libjpeg.lib;libpngd.lib;pthreadVC2.lib;zlibd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;GPB_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\concurrent\threads\auto_parallelize.cc" />
+    <ClCompile Include="..\src\concurrent\threads\child_thread.cc" />
+    <ClCompile Include="..\src\concurrent\threads\runnable.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\counter.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\semphore.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\synchronizables\synchronizable.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\synchronizables\synchronized.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\synchronizables\synchronized_rw.cc" />
+    <ClCompile Include="..\src\concurrent\threads\synchronization\synchronizables\unsynchronized.cc" />
+    <ClCompile Include="..\src\concurrent\threads\thread.cc" />
+    <ClCompile Include="..\src\lang\array.cc" />
+    <ClCompile Include="..\src\lang\exceptions\exception.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_bad_cast.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_file_error.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_file_open_error.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_file_read_error.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_file_write_error.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_index_out_of_bounds.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_invalid_argument.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_not_found.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_not_implemented.cc" />
+    <ClCompile Include="..\src\lang\exceptions\ex_null_pointer_dereference.cc" />
+    <ClCompile Include="..\src\lang\exceptions\throwable.cc" />
+    <ClCompile Include="..\src\lang\types\type_function_map.cc" />
+    <ClCompile Include="..\src\lang\types\type_identifier.cc" />
+    <ClCompile Include="..\src\math\exact.cc" />
+    <ClCompile Include="..\src\math\geometry\point_2D.cc" />
+    <ClCompile Include="..\src\math\geometry\point_3D.cc" />
+    <ClCompile Include="..\src\math\geometry\seg_intersect.cc" />
+    <ClCompile Include="..\src\math\geometry\triangle_2D.cc" />
+    <ClCompile Include="..\src\math\geometry\triangle_3D.cc" />
+    <ClCompile Include="..\src\math\geometry\triangulation.cc" />
+    <ClCompile Include="..\src\math\libraries\lib_image.cc" />
+    <ClCompile Include="..\src\math\libraries\lib_matrix.cc" />
+    <ClCompile Include="..\src\math\libraries\lib_signal.cc" />
+    <ClCompile Include="..\src\math\math.cc" />
+    <ClCompile Include="..\src\math\matrices\exceptions\ex_matrix_dimension_mismatch.cc" />
+    <ClCompile Include="..\src\math\matrices\exceptions\ex_matrix_singular.cc" />
+    <ClCompile Include="..\src\math\matrices\matrix.cc" />
+    <ClCompile Include="..\src\math\random\generators\rand_gen_normal.cc" />
+    <ClCompile Include="..\src\math\random\generators\rand_gen_uniform.cc" />
+    <ClCompile Include="..\src\math\random\sources\mersenne_twister_32.cc" />
+    <ClCompile Include="..\src\math\random\sources\mersenne_twister_64.cc" />
+    <ClCompile Include="..\src\math\random\sources\rand_source.cc" />
+    <ClCompile Include="..\src\math\random\sources\rand_source_32.cc" />
+    <ClCompile Include="..\src\math\random\sources\rand_source_64.cc" />
+    <ClCompile Include="..\src\math\random\sources\rand_source_default.cc" />
+    <ClCompile Include="..\src\math\random\sources\system_entropy.cc" />
+    <ClCompile Include="..\src\math\random\util\randperm.cc" />
+    <ClCompile Include="..\src\mlearning\clustering\clusterers\abstract\clusterer.cc" />
+    <ClCompile Include="..\src\mlearning\clustering\clusterers\abstract\weighted_clusterer.cc" />
+    <ClCompile Include="..\src\mlearning\clustering\clusterers\kmeans\basic_clusterer.cc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\io\formats\image\jpeg.hh" />
+    <ClInclude Include="..\include\io\formats\image\png.hh" />
+    <ClInclude Include="..\include\io\serialization\serializers.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_file_istream.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_file_ostream.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_input_stream.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_istream.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_ostream.hh" />
+    <ClInclude Include="..\include\io\serialization\serial_output_stream.hh" />
+    <ClInclude Include="..\include\io\streams\cerr.hh" />
+    <ClInclude Include="..\include\io\streams\cin.hh" />
+    <ClInclude Include="..\include\io\streams\clog.hh" />
+    <ClInclude Include="..\include\io\streams\cout.hh" />
+    <ClInclude Include="..\include\io\streams\fstream.hh" />
+    <ClInclude Include="..\include\io\streams\ifstream.hh" />
+    <ClInclude Include="..\include\io\streams\iomanip.hh" />
+    <ClInclude Include="..\include\io\streams\ios.hh" />
+    <ClInclude Include="..\include\io\streams\iostream.hh" />
+    <ClInclude Include="..\include\io\streams\istream.hh" />
+    <ClInclude Include="..\include\io\streams\istringstream.hh" />
+    <ClInclude Include="..\include\io\streams\ofstream.hh" />
+    <ClInclude Include="..\include\io\streams\ostream.hh" />
+    <ClInclude Include="..\include\io\streams\ostringstream.hh" />
+    <ClInclude Include="..\include\io\streams\stringstream.hh" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

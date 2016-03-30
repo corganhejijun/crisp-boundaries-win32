@@ -25,8 +25,7 @@
 /*
  * Mathematical constants.
  */
-#ifdef MATH__MATH__DEFINE_CONSTANTS
-#ifndef M_E
+#if MATH__MATH__DEFINE_CONSTANTS
 #define M_E		2.7182818284590452354	/* e */
 #define M_LOG2E	        1.4426950408889634074	/* log_2 e */
 #define M_LOG10E	0.43429448190325182765	/* log_10 e */
@@ -41,12 +40,11 @@
 #define M_SQRT2	        1.41421356237309504880	/* sqrt(2) */
 #define M_SQRT1_2	0.70710678118654752440	/* 1/sqrt(2) */
 #endif
-#endif
 
 /*
  * Mathematical constants - 128-bit precision.
  */
-#ifdef MATH__MATH__DEFINE_CONSTANTS
+#if MATH__MATH__DEFINE_CONSTANTS
 #define M_El		2.7182818284590452353602874713526625L  /* e */
 #define M_LOG2El	1.4426950408889634073599246810018921L  /* log_2 e */
 #define M_LOG10El	0.4342944819032518276511289189166051L  /* log_10 e */
@@ -96,18 +94,15 @@ using std::acos;
 using std::asin;
 using std::atan;
 
-#ifdef MATH__MATH__DEFINE_ACOSH
-#else
+#if (!MATH__MATH__DEFINE_ACOSH)
 using std::acosh;
 #endif
 
-#ifdef MATH__MATH__DEFINE_ASINH 
-#else
+#if (!MATH__MATH__DEFINE_ASINH)
 using std::asinh;
 #endif
 
-#ifdef MATH__MATH__DEFINE_ATANH
-#else
+#if (!MATH__MATH__DEFINE_ATANH)
 using std::atanh;
 #endif
 
@@ -123,8 +118,7 @@ using std::abs;
 using std::floor;
 using std::ceil;
 
-#ifdef MATH__MATH__DEFINE_ROUND
-#else
+#if (!MATH__MATH__DEFINE_ROUND)
 using std::round
 #endif
 
@@ -132,25 +126,25 @@ using std::round
  * Declare inverse hyperbolic trig functions.
  * (if the standard library does not define them)
  */
-#ifdef MATH__MATH__DEFINE_ACOSH
+#if MATH__MATH__DEFINE_ACOSH
 float acosh(float);
 double acosh(double);
 long double acosh(long double);
 #endif
 
-#ifdef MATH__MATH__DEFINE_ASINH
+#if MATH__MATH__DEFINE_ASINH
 float asinh(float);
 double asinh(double);
 long double asinh(long double);
 #endif
 
-#ifdef MATH__MATH__DEFINE_ATANH
+#if MATH__MATH__DEFINE_ATANH
 float atanh(float);
 double atanh(double);
 long double atanh(long double);
 #endif
 
-#ifdef MATH__MATH__DEFINE_ROUND
+#if MATH__MATH__DEFINE_ROUND
 float round(float);
 double round(double);
 long double round(long double);

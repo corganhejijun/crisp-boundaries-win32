@@ -230,7 +230,7 @@ auto_collection<T,C>::~auto_collection() {
  */
 template <typename T, typename C>
 inline C& auto_collection<T,C>::operator*() const {
-   #ifdef COLLECTIONS__POINTERS__AUTO_COLLECTION__CHECK_DEREFERENCE
+   #if COLLECTIONS__POINTERS__AUTO_COLLECTION__CHECK_DEREFERENCE
       if (_p == NULL)
          throw ex_null_pointer_dereference();
    #endif
@@ -243,7 +243,7 @@ inline C& auto_collection<T,C>::operator*() const {
  */
 template <typename T, typename C>
 inline C* auto_collection<T,C>::operator->() const {
-   #ifdef COLLECTIONS__POINTERS__AUTO_COLLECTION__CHECK_DEREFERENCE
+   #if COLLECTIONS__POINTERS__AUTO_COLLECTION__CHECK_DEREFERENCE
       if (_p == NULL)
          throw ex_null_pointer_dereference();
    #endif

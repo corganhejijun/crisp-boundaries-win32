@@ -128,31 +128,31 @@ public:
    auto_ptr< iterator<T> > iter_create() const;
 
    /*
-    * Declare node class.
-    */
+   * Declare node class.
+   */
    class queue_node;
-   
+
    /*
-    * Item in the heap.
-    */
+   * Item in the heap.
+   */
    class queue_item {
    public:
-      /*
+       /*
        * Constructors.
        */
-      explicit queue_item(T&);
-      explicit queue_item(const queue_item&);
+       explicit queue_item(T&);
+       explicit queue_item(const queue_item&);
 
-      /*
+       /*
        * Destructor.
        */
-      ~queue_item();
+       ~queue_item();
 
-      /*
+       /*
        * Item data.
        */
-      T& t;                /* reference to item */
-      queue_node* q_node;  /* node containing queue_item */
+       T& t;                /* reference to item */
+       queue_node* q_node;  /* node containing queue_item */
    };
 
 protected:
