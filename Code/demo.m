@@ -20,11 +20,12 @@ type = 'speedy'; % use this for fastest results
 %type = 'accurate_low_res'; % use this for slightly slower but more accurate results
 %type = 'accurate_high_res'; % use this for slow, but high resolution results
 
-I = imread('../test_images/12003.jpg');
+I = imread('../test_images/253027.jpg');
+I = rgb2gray(I);
 [E,E_oriented] = findBoundaries(I,type);
 
 close all; subplot(121); imshow(I); subplot(122); imshow(1-mat2gray(E));
-
+E_oriented = E_oriented ./ max(E_oriented(:));
 
 %% Segment image
 % builds an Ultrametric Contour Map from the detected boundaries (E_oriented)
@@ -32,7 +33,7 @@ close all; subplot(121); imshow(I); subplot(122); imshow(1-mat2gray(E));
 %
 % this part of the code is only supported on Mac and Linux
 
-thresh = 0.1; % larger values give fewer segments
+thresh = 0.5; % larger values give fewer segments
 E_ucm = contours2ucm_crisp_boundaries(mat2gray(E_oriented));
 S = ucm2colorsegs(E_ucm,I,thresh);
 
