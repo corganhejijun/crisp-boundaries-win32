@@ -7,7 +7,7 @@ clear; close all; clc;
 %type = 'accurate_low_res'; % use this for slightly slower but more accurate results
 type = 'accurate_high_res'; % use this for slow, but high resolution results
 
-I = imread('../test_images/253027.jpg');
+I = imread('../test_images/12003.jpg');
 [height, width, ~] = size(I);
 % resize image short edge to 100px
 bigEnd = 200;
@@ -32,7 +32,7 @@ close all;
 [hueCenters, valueCenters] = HueCluster(I);
 
 %%
-S = Ucm2HueSeg(E_ucm,I, valueCenters);
+S = Ucm2HueSeg(E_ucm,I, hueCenters);
 
 %show cells in image
 for i = 1 : length(S)
