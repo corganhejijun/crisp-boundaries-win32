@@ -1,4 +1,4 @@
-a = imread('../test_images/12003.jpg');
+a = imread('../test_images/000001.png');
 a = imresize(a,0.2);
 scatterColor = reshape(a, size(a, 1)*size(a,2), size(a,3));
 scatterColor = double(scatterColor)/255;

@@ -13,9 +13,9 @@
 %%
 
 clear; close all; clc;
-imgFolder = 'images/test/';
-outFolder = 'result/test/';
-imgFiles = dir([imgFolder, '*.jpg']);
+imgFolder = '../test_images/';
+outFolder = '../result/';
+imgFiles = dir([imgFolder, '34005124000001.jpg']);
 times = [];
 for i = 1 : length(imgFiles)
     disp(imgFiles(i).name);
@@ -51,10 +51,10 @@ for j = 1:5
     [h, w] = size(labels);
     labels = labels(1:h-1, 1:w-1);
     segs{j}=labels;
-    %S = ucm2colorsegs(E_ucm,I,thresh);
+    S = ucm2colorsegs(E_ucm,I,thresh);
 end
 save([outFolder, name, '.mat'], 'segs');
 times(i) = toc;
 
-%close all; subplot(121); imshow(I); subplot(122); imshow(S);
+close all; subplot(121); imshow(I); subplot(122); imshow(S);
 end

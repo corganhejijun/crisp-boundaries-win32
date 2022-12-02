@@ -7,7 +7,7 @@ clear; close all; clc;
 %type = 'accurate_low_res'; % use this for slightly slower but more accurate results
 type = 'accurate_high_res'; % use this for slow, but high resolution results
 
-I = imread('../test_images/12003.jpg');
+I = imread('../test_images/000001.png');
 [height, width, ~] = size(I);
 % resize image short edge to 100px
 bigEnd = 200;
